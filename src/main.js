@@ -14,14 +14,15 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
-  const token = sessionStorage.getItem('inventory-token')
+  const baseInfo = JSON.parse(sessionStorage.getItem('sosoBaseInfo'))
   if (to.path === '/' || to.path === '/register') {
-    if (token !== 'null' && token !== null) {
-      next('/todolist')
+    if (baseInfo !== null) {
+      next('/store')
     }
     next()
   } else {
-    if (token !== 'null' && token !== null) {
+    if (baseInfo !== null) {
+      const token = baseInfo.accessToken
       Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer ' + token
       next()
     } else {

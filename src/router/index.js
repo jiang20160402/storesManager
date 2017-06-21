@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
-import TodoList from '@/components/TodoList'
+import Store from '@/components/Store'
 import Register from '@/components/Register'
 
 Vue.use(Router)
@@ -15,9 +15,9 @@ export default new Router({
       component: Register
     },
     {
-      path: '/todolist/:username/:id',
-      name: 'TodoList',
-      component: TodoList
+      path: '/store',
+      name: 'Store',
+      component: Store
     },
     {
       path: '/',

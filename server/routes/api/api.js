@@ -1,4 +1,4 @@
-// routers/api/index.js
+// routers/api/api.js
 
 import Router from 'koa-router'
 import kjwt from 'koa-jwt'

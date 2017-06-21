@@ -19,7 +19,7 @@ exports.postUserAuth = async (ctx) => {
         if(!bcrypt.compareSync(data.password, userInfo.password)) {
             ctx.body = {
                 success: false,
-                info: '密码错误！'
+                msg: '密码错误！'
             }
         } else {
             const userToken = {
@@ -31,13 +31,15 @@ exports.postUserAuth = async (ctx) => {
             ctx.body = {
                 success: true,
                 id: userInfo.id,
-                token: token
+                accessToken: token,
+                loginName: userInfo.username,
+                msg: '登录成功!'
             }
         }
     }else {
         ctx.body = {
             success: false,
-            info: '用户不存在!'
+            msg: '用户不存在!'
         }
     }
 }

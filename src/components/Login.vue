@@ -14,12 +14,12 @@
                     v-model="password"
                     placeholder="密码"
                     type="password"
-                    @keyup.enter.native="loginToDo">
+                    @keyup.enter.native="login">
                 </el-input>
                 <router-link to="/register">
                     <el-button type="secondary">注册</el-button>
                 </router-link>  
-                <el-button type="primary" @click="loginToDo">登录</el-button>
+                <el-button type="primary" @click="login">登录</el-button>
             </el-row>
         </el-col>          
     </el-row>
@@ -34,7 +34,7 @@
         }
       },
       methods: {
-        loginToDo () {
+        login () {
           let obj = {
             name: this.account,
             password: this.password
@@ -42,24 +42,24 @@
           this.$http.post('/auth/user', obj)
             .then((res) => {
               if (res.data.success) {
-                sessionStorage.setItem('inventory-token', res.data.token)
+                let data = res.data
+                delete data.success
+                sessionStorage.setItem('sosoBaseInfo', JSON.stringify(data))
                 this.$message({
                   type: 'success',
                   message: '登录成功！'
                 })
-                this.$router.push('/todolist/' + this.account + '/' + res.data.id)
+                this.$router.push('/store')
               } else {
-                this.$message.error(res.data.info)
-                sessionStorage.setItem('inventory-token', null)
+                this.$message.error(res.data.msg)
+                sessionStorage.setItem('sosoBaseInfo', null)
               }
             }, (err) => {
               this.$message.error(`请求错误！${err}`)
-              sessionStorage.setItem('inventory-token', null)
+              sessionStorage.setItem('sosoBaseInfo', null)
             })
         }
-
       }
-
     }
 
 </script>

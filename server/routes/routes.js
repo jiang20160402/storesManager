@@ -1,5 +1,5 @@
 import Router from 'koa-router'
-import auth from './auth'
+import auth from './auth/auth.js'
 
 const router = new Router()
 

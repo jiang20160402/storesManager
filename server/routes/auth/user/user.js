@@ -1,4 +1,4 @@
-// routes/user.js
+// routes/user/user.js
 
 import userController from '../../../controllers/user'
 import Router from 'koa-router'

@@ -1,6 +1,6 @@
-// routes/auth.js
+// routes/auth/auth.js
 
-import userRouter from './user'
+import userRouter from './user/user.js'
 import Router from 'koa-router'
 
 const router = new Router()

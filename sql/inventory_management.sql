@@ -19,6 +19,7 @@ CREATE TABLE `soso_user` (
 DROP TABLE IF EXISTS `soso_store`;
 CREATE TABLE `soso_store` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`user_id` int(11) NOT NULL COMMENT '用户id',
 	`name` varchar(255) DEFAULT NULL COMMENT '商户名称',
 	`linkman` varchar(255) DEFAULT NULL COMMENT '联系人',
 	`mobile` varchar(11) DEFAULT NULL COMMENT '电话',
