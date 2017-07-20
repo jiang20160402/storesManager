@@ -33,21 +33,21 @@ export default new Router({
         {
           path: '',
           component: home,
-          meta: [],
+          meta: []
         },
         {
           path: '/orderList',
-          component: two,
+          component: two
         },
         {
           path: '/three',
-          component: three,
+          component: three
         },
         {
           path: '/four',
-          component: four,
+          component: four
         }
       ]
-    },
+    }
   ]
 })
