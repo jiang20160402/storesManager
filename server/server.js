@@ -17,40 +17,40 @@ app.use(convert(bodyParser()))
 app.use(json())
 app.use(logger())
 
-app.use(async (ctx, next) => {
-    let start = new Date()
-    await next()
-    let ms = new Date() - start
-    console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+app.use(async(ctx, next) => {
+  let start = new Date()
+  await next()
+  let ms = new Date() - start
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
-app.use(async (ctx, next) => {
-    try {
-        await next()
-    } catch (err) {
-        if ( 401 === err.status) {
-            ctx.status = 401
-            ctx.body = {
-                success: false,
-                token: null,
-                info: 'Protected resource, use Authorization header to get access'
-            }
-        } else {
-            throw err
-        }
+app.use(async(ctx, next) => {
+  try {
+    await next()
+  } catch (err) {
+    if (err.status === 401) {
+      ctx.status = 401
+      ctx.body = {
+        success: false,
+        token: null,
+        info: 'Protected resource, use Authorization header to get access'
+      }
+    } else {
+      throw err
     }
+  }
 })
 
 app.on('error', (error, ctx) => {
-    console.log('Error Occoured ' + JSON.stringify(ctx.onerror))
-    console.log('server error:' + error)
+  console.log('Error Occoured ' + JSON.stringify(ctx.onerror))
+  console.log('server error:' + error)
 })
 
 app
     .use(routes.routes())
     .use(routes.allowedMethods())
 
-app.use(historyApiFallback())    
+app.use(historyApiFallback())
 
 app.use(serve(path.join(__dirname, '..', 'dist')))
 
