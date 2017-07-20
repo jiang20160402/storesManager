@@ -9,6 +9,9 @@ CREATE TABLE `soso_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL COMMENT '登陆用户名',
   `password` varchar(255) DEFAULT NULL COMMENT '密码',
+	`email` varchar(255) DEFAULT NULL COMMENT '电子邮件',
+	`phone` varchar(11) DEFAULT NULL COMMENT '电话',
+	`userStatus` tinyint(1) DEFAULT NULL COMMENT '用户状态',
   `logintime` int(10) unsigned DEFAULT NULL COMMENT '上次登陆时间',
   `loginip` varchar(255) DEFAULT NULL COMMENT '登陆ip',
   `litpic` varchar(255) DEFAULT NULL COMMENT '用户头像',
@@ -22,7 +25,7 @@ CREATE TABLE `soso_store` (
 	`user_id` int(11) NOT NULL COMMENT '用户id',
 	`name` varchar(255) DEFAULT NULL COMMENT '商户名称',
 	`linkman` varchar(255) DEFAULT NULL COMMENT '联系人',
-	`mobile` varchar(11) DEFAULT NULL COMMENT '电话',
+	`phone` varchar(11) DEFAULT NULL COMMENT '电话',
 	`address` varchar(255) DEFAULT NULL COMMENT '地址',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商户表';
@@ -32,7 +35,7 @@ CREATE TABLE `soso_store_customer` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`store_id` int(11) NOT NULL COMMENT '商户id',
 	`name` varchar(255) DEFAULT NULL COMMENT '客户姓名',
-	`mobile` varchar(11) DEFAULT NULL COMMENT '电话',
+	`phone` varchar(11) DEFAULT NULL COMMENT '电话',
 	`address` varchar(255) DEFAULT NULL COMMENT '地址',
 	`remark` varchar(500) DEFAULT NULL COMMENT '备注信息',
 	PRIMARY KEY (`id`)
@@ -44,7 +47,7 @@ CREATE TABLE `soso_store_employee` (
 	`store_id` int(11) NOT NULL COMMENT '商户id',
 	`role_id`	int(11) DEFAULT NULL COMMENT '角色id',
 	`name` varchar(255) DEFAULT NULL COMMENT '员工姓名',
-	`mobile` varchar(11) DEFAULT NULL COMMENT '电话',
+	`phone` varchar(11) DEFAULT NULL COMMENT '电话',
 	`address` varchar(255) DEFAULT NULL COMMENT '地址',
 	`remark` varchar(500) DEFAULT NULL COMMENT '备注信息',
 	PRIMARY KEY (`id`)
@@ -67,7 +70,7 @@ CREATE TABLE `soso_store_supplier` (
 	`store_id` int(11) NOT NULL COMMENT '商户id',
 	`name` varchar(255) DEFAULT NULL COMMENT '供应商名称',
 	`linkman` varchar(255) DEFAULT NULL COMMENT '联系人',
-	`mobile` varchar(11) DEFAULT NULL COMMENT '电话',
+	`phone` varchar(11) DEFAULT NULL COMMENT '电话',
 	`address` varchar(255) DEFAULT NULL COMMENT '地址',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='供应商表';
@@ -78,7 +81,7 @@ CREATE TABLE `soso_store_repository` (
 	`store_id` int(11) NOT NULL COMMENT '商户id',
 	`name` varchar(255) DEFAULT NULL COMMENT '仓库名称',
 	`linkman` varchar(255) DEFAULT NULL COMMENT '联系人',
-	`mobile` varchar(11) DEFAULT NULL COMMENT '电话',
+	`phone` varchar(11) DEFAULT NULL COMMENT '电话',
 	`address` varchar(255) DEFAULT NULL COMMENT '地址',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='仓库表';
