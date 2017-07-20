@@ -1,3 +1,3 @@
 module.exports = {
-  hash: '123456'
+  hash: '1234567'
 }
