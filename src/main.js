@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-import router from './router'
+import router from './router/index'
 import Axios from 'axios'
 
 Vue.prototype.$http = Axios
@@ -13,23 +13,22 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
-router.beforeEach((to, from, next) => {
-  const baseInfo = JSON.parse(sessionStorage.getItem('sosoBaseInfo'))
-  if (to.path === '/' || to.path === '/register') {
-    if (baseInfo !== null) {
-      next('/store')
-    }
-    next()
-  } else {
-    if (baseInfo !== null) {
-      const token = baseInfo.accessToken
-      Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer ' + token
-      next()
-    } else {
-      next('/')
-    }
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   const token = sessionStorage.getItem('inventory-token')
+//   if (to.path === '/' || to.path === '/register') {
+//     if (token !== 'null' && token !== null) {
+//       next('/todolist')
+//     }
+//     next()
+//   } else {
+//     if (token !== 'null' && token !== null) {
+//       Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer ' + token
+//       next()
+//     } else {
+//       next('/')
+//     }
+//   }
+// })
 
 /* eslint-disable no-new */
 new Vue({
