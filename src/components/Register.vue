@@ -114,7 +114,7 @@
                   type: 'success',
                   message: res.data.message
                 })
-                this.$router.push('/login')
+                this.$router.push('/')
               } else {
                 this.$message.error(res.data.message)
               }
