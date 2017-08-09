@@ -14,43 +14,43 @@ import lose from '@/components/lose'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history',
-    routes: [{
-            path: '/register',
-            name: 'Register',
-            component: Register
-        },
-        {
-            path: '/',
-            name: 'Index',
-            component: Login
-        },
-        {
-            path: '/main',
-            name: 'main',
-            component: main,
-            children: [{
-                    path: '',
-                    component: home,
-                    meta: []
-                },
-                {
-                    path: '/supply',
-                    component: supply
-                },
-                {
-                    path: '/stock',
-                    component: stock
-                },
-                {
-                    path: '/count',
-                    component: count
-                },
-                {
-                    path: '/lose',
-                    component: lose
-                }
-            ]
-        }
+  mode: 'history',
+  routes: [{
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/',
+    name: 'Index',
+    component: Login
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: main,
+    children: [{
+      path: '',
+      component: home,
+      meta: []
+    },
+    {
+      path: '/supply',
+      component: supply
+    },
+    {
+      path: '/stock',
+      component: stock
+    },
+    {
+      path: '/count',
+      component: count
+    },
+    {
+      path: '/lose',
+      component: lose
+    }
     ]
+  }
+  ]
 })

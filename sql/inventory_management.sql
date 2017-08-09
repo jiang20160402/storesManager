@@ -53,8 +53,8 @@ CREATE TABLE `soso_store_employee` (
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='员工表';
 
-DROP TABLE IF EXISTS `soso_store_role`;
-CREATE TABLE `soso_store_role` (
+DROP TABLE IF EXISTS `soso_store_employee_role`;
+CREATE TABLE `soso_store_employee_role` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`store_id` int(11) NOT NULL COMMENT '商户id',
 	`pid`	int(11) DEFAULT NULL COMMENT '父级id',
@@ -104,6 +104,7 @@ CREATE TABLE `soso_product` (
 	`additional_cost` int(11) DEFAULT '0' COMMENT '额外费用/包装费',
 	`current_amount` int(11) DEFAULT NULL COMMENT '商品当前库存',
 	`alert_amount` int(11) DEFAULT NULL COMMENT '商品警戒库存',
+	`status` int(1) DEFAULT '0' COMMNET '商品状态'
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品表';
 
