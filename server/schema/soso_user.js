@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define('soso_user', {
     id: {
       type: DataTypes.INTEGER(11),
@@ -14,6 +14,18 @@ module.exports = function (sequelize, DataTypes) {
     },
     password: {
       type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    phone: {
+      type: DataTypes.STRING(11),
+      allowNull: true
+    },
+    userStatus: {
+      type: DataTypes.INTEGER(1),
       allowNull: true
     },
     logintime: {
@@ -34,5 +46,5 @@ module.exports = function (sequelize, DataTypes) {
     }
   }, {
     tableName: 'soso_user'
-  })
-}
+  });
+};

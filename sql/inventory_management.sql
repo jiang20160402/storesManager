@@ -104,7 +104,11 @@ CREATE TABLE `soso_product` (
 	`additional_cost` int(11) DEFAULT '0' COMMENT '额外费用/包装费',
 	`current_amount` int(11) DEFAULT NULL COMMENT '商品当前库存',
 	`alert_amount` int(11) DEFAULT NULL COMMENT '商品警戒库存',
-	`status` int(1) DEFAULT '0' COMMNET '商品状态'
+	`status` int(1) DEFAULT '0' COMMENT '商品状态',
+	`litpic` varchar(255) DEFAULT NULL COMMENT '封面图',
+	`piclist` text DEFAULT NULL COMMENT '图片列表',
+	`addtime`	int(10) DEFAULT NULL COMMENT '添加时间',
+	`modtime` int(10) DEFAULT NULL COMMENT '修改时间',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品表';
 
