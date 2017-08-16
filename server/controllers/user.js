@@ -5,13 +5,17 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 import config from '../config'
 
-exports.getUserInfo = async(ctx) => {
+// 根据用户ID查询信息
+
+exports.getUserInfoById = async(ctx) => {
   const id = ctx.params.id
   const result = await User.getUserById(id)
   ctx.body = result
 }
 
-exports.postUserAuth = async(ctx) => {
+// 用户登录
+
+exports.login = async(ctx) => {
   const data = ctx.request.body
   const userInfo = await User.getUserByName(data.name)
 
@@ -44,6 +48,13 @@ exports.postUserAuth = async(ctx) => {
   }
 }
 
+// 用户注销
+exports.logout = async(ctx) => {
+
+}
+
+// 判断用户名是否重复
+
 exports.checkUsername = async(ctx) => {
   const data = ctx.request.body
   const userInfo = await User.getUserByName(data.name)
@@ -59,7 +70,9 @@ exports.checkUsername = async(ctx) => {
   }
 }
 
-exports.addUser = async(ctx) => {
+// 用户注册
+
+exports.register = async(ctx) => {
   const data = ctx.request.body
 
   const userInfo = await User.getUserByName(data.name)
