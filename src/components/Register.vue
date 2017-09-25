@@ -92,7 +92,7 @@
             name: this.account
           }
 
-          this.$http.post('/auth/checkusername', obj)
+          this.$http.post('/user/checkusername', obj)
             .then((res) => {
               if (res.data.result) {
                 this.usrerrshow = true
@@ -107,7 +107,7 @@
             password: this.password
           }
 
-          this.$http.post('/auth/register', obj)
+          this.$http.post('/user/register', obj)
             .then((res) => {
               if (res.data.result) {
                 this.$message({

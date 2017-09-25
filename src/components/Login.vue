@@ -34,7 +34,7 @@
             name: this.account,
             password: this.password
           }
-          this.$http.post('/auth/user', obj)
+          this.$http.post('/user/login', obj)
             .then((res) => {
               if (res.data.success) {
                 sessionStorage.setItem('inventory-token', res.data.token)
